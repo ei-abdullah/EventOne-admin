@@ -1,8 +1,7 @@
-import { TfiPlus } from "react-icons/tfi";
-
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+
 import EventTable from "./EventTable";
+import { EventDialog } from "./EventDialog";
 
 export default function event() {
   return (
@@ -14,9 +13,8 @@ export default function event() {
             Create and manage your events here.
           </div>
         </div>
-        <Button>
-          <TfiPlus /> <span className="pl-2">Create Event</span>
-        </Button>
+
+        <EventDialog />
       </CardHeader>
 
       <CardContent>

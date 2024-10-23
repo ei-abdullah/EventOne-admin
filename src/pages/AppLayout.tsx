@@ -1,4 +1,5 @@
-import SidePanel from "@/components/ui/SidePanel";
+import SidePanel from "@/components/custom/SidePanel";
+import { Toaster } from "@/components/ui/toaster";
 import { Outlet } from "react-router-dom";
 
 export default function AppLayout() {
@@ -7,6 +8,7 @@ export default function AppLayout() {
       <SidePanel />
       <div className="bg-slate-50 h-dvh overflow-scroll scroll-m-0 flex justify-center items-center ">
         <Outlet />
+        <Toaster />
       </div>
     </main>
   );

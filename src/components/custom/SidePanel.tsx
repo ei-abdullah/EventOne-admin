@@ -8,7 +8,7 @@ import {
   TfiUser,
 } from "react-icons/tfi";
 
-import { Button } from "./button";
+import { Button } from "../ui/button";
 
 export default function SidePanel() {
   return (

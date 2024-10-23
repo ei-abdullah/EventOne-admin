@@ -1,44 +1,34 @@
-import { Badge } from "@/components/ui/badge";
+import { useEvents } from "./useEvents";
+
 import {
   Table,
   TableBody,
-  TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
 
+import EventRow from "./EventRow";
+
 export default function EventTable() {
+  const { isLoading, events, error } = useEvents();
+
   return (
-    <Table className="mt-12">
+    <Table className="mt-12 overflow-hidden ">
       <TableHeader>
         <TableRow>
           <TableHead>Event Name</TableHead>
           <TableHead>Date</TableHead>
           <TableHead>Venue</TableHead>
           <TableHead>Status</TableHead>
-          <TableHead>Actions</TableHead>
+          <TableHead>Action</TableHead>
         </TableRow>
       </TableHeader>
+
       <TableBody>
-        <TableRow>
-          <TableCell>Summer Music Fesitval</TableCell>
-          <TableCell>July 15, 2023</TableCell>
-          <TableCell>Central Part</TableCell>
-          <TableCell>
-            <Badge className="font-robotoCondensed">Upcoming</Badge>
-          </TableCell>
-        </TableRow>
-        <TableRow>
-          <TableCell>Tech Conference 2023</TableCell>
-          <TableCell>September 5, 2023</TableCell>
-          <TableCell>Convention Center</TableCell>
-          <TableCell>
-            <Badge variant="outline" className="font-robotoCondensed">
-              Draft
-            </Badge>
-          </TableCell>
-        </TableRow>
+        {events?.map((event) => (
+          <EventRow event={event} key={event.id} />
+        ))}
       </TableBody>
     </Table>
   );
