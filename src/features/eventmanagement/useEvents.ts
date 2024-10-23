@@ -12,5 +12,5 @@ export function useEvents() {
     queryFn: getEventsApi,
   });
 
-  return { isLoading, events, error };
+  return { events, isLoading, error };
 }

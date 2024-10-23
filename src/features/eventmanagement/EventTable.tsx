@@ -11,7 +11,7 @@ import {
 import EventRow from "./EventRow";
 
 export default function EventTable() {
-  const { isLoading, events, error } = useEvents();
+  const { events } = useEvents();
 
   return (
     <Table className="mt-12 overflow-hidden ">

@@ -21,7 +21,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { CalendarIcon } from "@radix-ui/react-icons";
 import { Checkbox } from "@/components/ui/checkbox";
-import { DialogTrigger } from "@/components/ui/dialog";
 
 import { createEventSchema } from "../../../schema";
 
@@ -29,7 +28,7 @@ import { cn } from "@/lib/utils";
 import { formatDateForSupabase } from "@/utils/helpers";
 import { useCreateEvent } from "./useCreateEvent";
 
-export default function EventForm() {
+export default function CreateEventForm() {
   const form = useForm({
     resolver: zodResolver(createEventSchema),
     defaultValues: {
@@ -45,7 +44,6 @@ export default function EventForm() {
   // Login talking to backend
   function onSubmit(data: z.infer<typeof createEventSchema>) {
     const { eventName, venue, eventDate, isDraft } = data;
-    
 
     const newEvent = {
       eventName,
@@ -53,8 +51,6 @@ export default function EventForm() {
       eventDate: formatDateForSupabase(eventDate),
       isDraft,
     };
-
-    
 
     createEvent(newEvent);
   }

@@ -1,10 +1,5 @@
-
+import TicketCard from "@/features/ticketing/TicketCard";
 
 export default function Ticketing() {
-  return (
-    <div>
-      Ticketing
-
-    </div>
-  );
+  return <TicketCard />;
 }

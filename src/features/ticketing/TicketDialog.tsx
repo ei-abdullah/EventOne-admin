@@ -9,26 +9,26 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import CreateEventForm from "./CreateEventForm";
+import CreateEditForm from "./CreateEditForm";
 
-export function EventDialog() {
+export default function TicketDialog() {
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button>
           <span className="flex justify-center items-center">
-            <TfiPlus /> <span className="pl-2">Create Event</span>
+            <TfiPlus /> <span className="pl-2">Add Ticket</span>
           </span>
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader className="mb-4 ">
           <DialogTitle className="text-2xl py-1">
-            Create a new event
+            Add a new ticket type
           </DialogTitle>
-          <DialogDescription>Enter event details</DialogDescription>
+          <DialogDescription>Enter ticket details</DialogDescription>
         </DialogHeader>
-        <CreateEventForm />
+        <CreateEditForm />
       </DialogContent>
     </Dialog>
   );
