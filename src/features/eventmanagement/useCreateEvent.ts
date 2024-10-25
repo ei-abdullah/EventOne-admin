@@ -18,7 +18,8 @@ export function useCreateEvent() {
     },
     onError: (error) => {
       toast({
-        title: error.message,
+        title: "Error creating event",
+        description: error.message,
         variant: "destructive",
       });
     },

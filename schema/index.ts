@@ -12,3 +12,15 @@ export const createEventSchema = z.object({
   }),
   isDraft: z.boolean().default(false).optional(),
 });
+
+export const createEditTicketSchema = z.object({
+  ticketType: z.string().min(3, {
+    message: "Ticket type must be at least 3 characters long",
+  }),
+  price: z.number().positive({
+    message: "Ticket price must be greater than 0",
+  }),
+  available: z.number().positive({
+    message: "Ticket availability must be greater than 0",
+  }),
+});

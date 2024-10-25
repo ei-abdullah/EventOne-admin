@@ -9,7 +9,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import CreateEditForm from "./CreateEditForm";
+import CreateEditForm from "./CreateTicketForm";
 
 export default function TicketDialog() {
   return (

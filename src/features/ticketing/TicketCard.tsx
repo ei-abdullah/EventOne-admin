@@ -9,7 +9,7 @@ export default function TicketCard() {
   const { isLoading } = useTickets();
 
   if (isLoading) return <Loader />;
-  
+
   return (
     <Card className="w-1/2 max-h-[50%] bg-white shadow-none p-4">
       <CardHeader className="flex flex-row justify-between items-center">
@@ -22,7 +22,6 @@ export default function TicketCard() {
 
         <TicketDialog />
       </CardHeader>
-
       <CardContent className="flex justify-center items-center max-h-[20rem] overflow-scroll">
         <TicketTable />
       </CardContent>

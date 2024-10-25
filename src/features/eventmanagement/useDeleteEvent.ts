@@ -17,7 +17,8 @@ export function useDeleteEvent() {
     },
     onError: (error) => {
       toast({
-        title: error.message,
+        title: "Error deleting event",
+        description: error.message,
         variant: "destructive",
       });
     },
