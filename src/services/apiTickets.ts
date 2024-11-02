@@ -19,10 +19,10 @@ export async function createTicketApi(newTicket: object) {
   return data;
 }
 
-export async function upadateTicketApi(id: number, newTicket: object) {
+export async function upadateTicketApi(id: number, updatedTicket: object) {
   const { data, error } = await supabase
     .from("tickets")
-    .update({ ...newTicket })
+    .update({ ...updatedTicket })
     .eq("id", id)
     .select();
 

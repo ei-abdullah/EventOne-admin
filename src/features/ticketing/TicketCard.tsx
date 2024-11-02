@@ -1,9 +1,21 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { TfiPlus } from "react-icons/tfi";
 
-import TicketDialog from "./TicketDialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+import Loader from "@/components/custom/Loader";
+
+import CreateEditTicketForm from "./CreateEditTicketForm";
 import TicketTable from "./TicketTable";
 import { useTickets } from "./useTickets";
-import Loader from "@/components/custom/Loader";
 
 export default function TicketCard() {
   const { isLoading } = useTickets();
@@ -20,7 +32,25 @@ export default function TicketCard() {
           </div>
         </div>
 
-        <TicketDialog />
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button>
+              <span className="flex justify-center items-center">
+                <TfiPlus /> <span className="pl-2">Add Ticket</span>
+              </span>
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-[425px]">
+            <DialogHeader className="mb-4 ">
+              <DialogTitle className="text-2xl py-1">
+                Add a new ticket type
+              </DialogTitle>
+              <DialogDescription>Enter ticket details</DialogDescription>
+            </DialogHeader>
+
+            <CreateEditTicketForm />
+          </DialogContent>
+        </Dialog>
       </CardHeader>
       <CardContent className="flex justify-center items-center max-h-[20rem] overflow-scroll">
         <TicketTable />

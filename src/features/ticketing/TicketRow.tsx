@@ -1,11 +1,18 @@
 import { TfiPencil, TfiTrash } from "react-icons/tfi";
 
+import {
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { TableCell, TableRow } from "@/components/ui/table";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
+import { Separator } from "@/components/ui/separator";
 
 import useDeleteTicket from "./useDeleteTicket";
-import EditTicketDialog from "./EditTicketDialog";
+import EditTicketForm from "./CreateEditTicketForm";
 
 interface Ticket {
   id: number;
@@ -33,7 +40,14 @@ export default function TicketRow({ ticket }: { ticket: Ticket }) {
               <TfiPencil />
             </Button>
           </DialogTrigger>
-          <EditTicketDialog ticket={ticket} />
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Edit Ticket Details</DialogTitle>
+              <DialogDescription></DialogDescription>
+            </DialogHeader>
+            <Separator />
+            <EditTicketForm ticket={ticket} />
+          </DialogContent>
         </Dialog>
         <Button
           variant="ghost"

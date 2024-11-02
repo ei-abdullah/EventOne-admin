@@ -23,4 +23,5 @@ export const createEditTicketSchema = z.object({
   available: z.number().positive({
     message: "Ticket availability must be greater than 0",
   }),
+  sold: z.number().nonnegative(),
 });

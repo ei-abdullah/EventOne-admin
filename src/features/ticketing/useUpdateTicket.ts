@@ -5,14 +5,15 @@ import { toast } from "@/hooks/use-toast";
 
 interface Ticket {
   id: number;
-  newTicket: object;
+  updatedTicket: object;
 }
 
 export function useUpdateTicket() {
   const queryClient = useQueryClient();
 
-  const { mutate: upadateTicket, isPending: isUpdating } = useMutation({
-    mutationFn: ({ id, newTicket }: Ticket) => upadateTicketApi(id, newTicket),
+  const { mutate: updateTicket, isPending: isUpdating } = useMutation({
+    mutationFn: ({ id, updatedTicket }: Ticket) =>
+      upadateTicketApi(id, updatedTicket),
     onSuccess: () => {
       toast({
         title: "Ticket upated successfully",
@@ -30,5 +31,5 @@ export function useUpdateTicket() {
     },
   });
 
-  return { upadateTicket, isUpdating };
+  return { updateTicket, isUpdating };
 }
